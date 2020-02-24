@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, addToSavedList }) => {
+  const saveMovie = () => {
+    addToSavedList(movie);
+  }
+
   const { title, director, metascore, stars, id } = movie;
   return (
     <Link to={`/movies/${id}`}>
@@ -22,7 +26,7 @@ const MovieCard = ({ movie }) => {
             </div>
           ))}
         </div>
-        <div className="save-button">Save</div>
+        <div onClick={saveMovie} className="save-button">Save</div>
       </div>
     </Link>
   )

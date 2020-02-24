@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import MovieCard from './MovieCard';
 
-const Movie = (props) => {
+const Movie = ({ addToSavedList }) => {
   const [movie, setMovie] = useState();
   const { id } = useParams();
   useEffect(() => {
@@ -32,7 +32,7 @@ const Movie = (props) => {
   }
 
   return (
-    <MovieCard movie={movie} />
+    <MovieCard movie={movie} addToSavedList={addToSavedList} />
     ); 
 }
 

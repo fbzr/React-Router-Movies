@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import MovieCard from './MovieCard';
 
-const MovieList = props => {
+const MovieList = ({ addToSavedList }) => {
   const [movies, setMovies] = useState([])
   useEffect(() => {
     const getMovies = () => {
@@ -23,7 +23,7 @@ const MovieList = props => {
   return (
     <div className="movie-list">
       {movies.map(movie => (
-        <MovieCard movie={movie} />
+        <MovieCard movie={movie} addToSavedList={addToSavedList} />
       ))}
     </div>
   );
